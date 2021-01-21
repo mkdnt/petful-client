@@ -1,7 +1,14 @@
-import './index.css'
+import './index.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
+import { BrowserRouter } from 'react-router-dom';
+import { PetfulContextProvider } from './context';
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Root from './root/Root'
-
-ReactDOM.render(<Root />, document.getElementById('root'))
+ReactDOM.render(
+<BrowserRouter>
+    <PetfulContextProvider>
+        <App />
+    </PetfulContextProvider>
+</BrowserRouter>, 
+document.getElementById('root'))
