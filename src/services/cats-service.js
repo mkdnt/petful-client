@@ -2,7 +2,7 @@ import config from '../config'
 
 const CatsService = {
   getCat() {
-    return fetch(`${config.API_ENDPOINT}/cats`, {
+    return fetch(`${config.REACT_APP_API_ENDPOINT}/cats`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -13,7 +13,7 @@ const CatsService = {
     )
   },
   deleteCat() {
-    return fetch(`${config.API_ENDPOINT}/cats`, {
+    return fetch(`${config.REACT_APP_API_ENDPOINT}/cats`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',

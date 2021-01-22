@@ -2,7 +2,7 @@ import config from '../config'
 
 const DogsService = {
   getDog() {
-    return fetch(`${config.API_ENDPOINT}/dogs`, {
+    return fetch(`${config.REACT_APP_API_ENDPOINT}/dogs`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -13,7 +13,7 @@ const DogsService = {
     )
   },
   deleteDog() {
-    return fetch(`${config.API_ENDPOINT}/dogs`, {
+    return fetch(`${config.REACT_APP_API_ENDPOINT}/dogs`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',

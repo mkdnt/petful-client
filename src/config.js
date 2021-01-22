@@ -1,3 +1,3 @@
 export default {
-    API_ENDPOINT: 'https://petful-md.herokuapp.com'
+    REACT_APP_API_ENDPOINT: 'https://petful-md.herokuapp.com'
 }
