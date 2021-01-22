@@ -1,5 +1,5 @@
 const config = {
-    REACT_APP_API_ENDPOINT: 'https://petful-md.herokuapp.com'
+    REACT_APP_API_BASE: 'https://petful-md.herokuapp.com'
 }
 
 export default config;
