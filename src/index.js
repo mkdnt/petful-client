@@ -1,7 +1,7 @@
 import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import App from './main-components/App';
 import { BrowserRouter } from 'react-router-dom';
 import { PetfulContextProvider } from './context';
 
