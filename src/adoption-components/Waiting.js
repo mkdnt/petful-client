@@ -10,6 +10,13 @@ class Waiting extends Component {
           <p>2. {this.props.second}</p>
           <p>3. {this.props.third}</p>
         </ul>
+        <hr
+            style={{
+            width: "75%",
+            border: "2px solid #000000",
+            backgroundColor: "#000000",
+            }}
+        />
       </div>
     )
   }
