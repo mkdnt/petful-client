@@ -116,6 +116,7 @@ class Adoptable extends Component {
       <>
         <div>
           <h1>Adoptable Pets</h1>
+          {this.context.queue.first.next ? this.renderQueue() : "The pets are about to arrive..."}
         </div>
         <section>
           <div>

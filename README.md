@@ -6,8 +6,8 @@
 
 ## App Description
 
-+ This application is an exercise that implements a queue data structure to simulate a live pet adoption process. The
-user may join the queue and see other 'fake' adoptees in queue as well.
++ This application is a Thinkful challenge that implements a queue data structure to simulate a live pet adoption
+process. Thenuser may join the queue and see other 'fake' adoptees in queue as well.
 
 + Home
 + Here you will find a description of the application and the instructions for use of its features.
