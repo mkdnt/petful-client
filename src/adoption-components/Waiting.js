@@ -6,9 +6,9 @@ class Waiting extends Component {
       <div className='waiting'>
         <ul>
           <h2>Waiting to Adopt</h2>
-          <li>{this.props.first}</li>
-          <li>{this.props.second}</li>
-          <li>{this.props.third}</li>
+          <p>1. {this.props.first}</p>
+          <p>2. {this.props.second}</p>
+          <p>3. {this.props.third}</p>
         </ul>
       </div>
     )
