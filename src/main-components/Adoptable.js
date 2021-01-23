@@ -28,7 +28,6 @@ class Adoptable extends Component {
         this.context.setCurrentCat(res[0])
         let peopleQueue = new Queue()
         res[2].forEach((person) => peopleQueue.enqueue(person))
-        console.log(peopleQueue)
         this.context.setQueue(peopleQueue)
       })
       .catch((error) => console.error(error))

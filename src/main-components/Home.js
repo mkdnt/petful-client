@@ -12,7 +12,6 @@ class Home extends Component {
     this.context.clearError()
     this.context.clearPerson()
     let person = document.getElementById('name').value
-    console.log('NAME', person)
     this.context.setPerson(person)
     return PeopleService.addPerson(person).then((results) => {
       const { location, history } = this.props

@@ -65,7 +65,6 @@ export class PetfulContextProvider extends Component {
   }
 
   setQueue = (queue) => {
-    console.log('QUEUE', queue)
     this.setState({ queue })
   }
 
@@ -98,7 +97,6 @@ export class PetfulContextProvider extends Component {
   }
 
   setError = (error) => {
-    console.log(error)
     this.setState({ error })
   }
 
