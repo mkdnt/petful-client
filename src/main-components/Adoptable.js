@@ -17,7 +17,7 @@ class Adoptable extends Component {
     this.context.clearError()
     this.context.clearQueue()
 
-    this.interval = setInterval(this.cyclePeople.bind(this), 3000)
+    this.interval = setInterval(this.cyclePeople.bind(this), 5000)
     Promise.all([
       CatsService.getCat(),
       DogsService.getDog(),
@@ -52,6 +52,8 @@ class Adoptable extends Component {
         first={this.context.queue.first.value}
         second={this.context.queue.first.next.value}
         third={this.context.queue.first.next.next.value}
+        fourth={this.context.queue.first.next.next.next.value}
+        fifth={this.context.queue.first.next.next.next.next.value}
       />
     )
   }
@@ -66,6 +68,7 @@ class Adoptable extends Component {
       .then(res => {
         DogsService.getDog().then(res => this.context.setCurrentDog(res))
         this.setState({ adopting: this.context.queue.first.value })
+        this.context.clearPerson()
       })
   }
 
@@ -79,6 +82,7 @@ class Adoptable extends Component {
       .then(res => {
         CatsService.getCat().then(res => this.context.setCurrentCat(res))
         this.setState({ adopting: this.context.queue.first.value })
+        this.context.clearPerson()
       })
   }
 

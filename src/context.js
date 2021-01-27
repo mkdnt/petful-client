@@ -77,7 +77,7 @@ export class PetfulContextProvider extends Component {
   }
 
   clearPeople = () => {
-    this.setState({ users: [] })
+    this.setState({ people: [] })
   }
 
   setPerson = (person) => {

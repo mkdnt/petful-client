@@ -7,8 +7,8 @@ export default class Adoptions extends Component {
     return (
       <div>
         <img src={imgSrc} alt="pet"/>
-        <p>Pet: {name}</p>
-        <p>Owner: {owner}</p>
+          <h3>Congratulations!</h3>
+          <p>{owner} has successfully adopted {name}!</p>
       </div>
     )
   }

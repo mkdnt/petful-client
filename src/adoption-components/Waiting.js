@@ -9,6 +9,8 @@ class Waiting extends Component {
           <p>1. {this.props.first}</p>
           <p>2. {this.props.second}</p>
           <p>3. {this.props.third}</p>
+          <p>4. {this.props.fourth}</p>
+          <p>5. {this.props.fifth}</p>
         </ul>
         <hr
             style={{

@@ -1,7 +1,7 @@
 # Petful Client
 
 + Link to [Live App](https://petful-md.vercel.app/)
-+ Link to [Client Repo] (https://github.com/mkdnt/petful-client)
++ Link to [Client Repo](https://github.com/mkdnt/petful-client)
 + Link to [Server Repo](https://github.com/mkdnt/petful-server)
 
 ## App Description
