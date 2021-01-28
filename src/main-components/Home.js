@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PetfulContext from '../context';
 import { Link } from "react-router-dom";
 import './Home.css'
 
 export default function Home(props) {
-  const [started, setStarted] = useState(false);
 
   const handleClick = (e, context) => {
     e.preventDefault();
@@ -29,18 +28,13 @@ export default function Home(props) {
           <div className="home">
             <div className="homeSection">
 
-             {!started ? <>
+             <>
              <h2>The perfect pet is waiting for you!</h2>
              <img src='https://i.pinimg.com/736x/ae/c4/53/aec453161b2f33ffc6219d8a758307a9.jpg' alt='cute puppy' />
               <p>
                 Because our pets are so popular, you'll need to wait your turn to adopt. When you're up, you can pick the dog or cat that you want!
               </p>
-              <h3>Enter your name to join the queue!</h3> </> : null }
-              {!started ? (
-                <button onClick={() => setStarted(true)}>
-                  Join
-                </button>
-              ) : (
+              <h3>Enter your name to join the queue!</h3> </>
                 <form
                   onSubmit={(e) => {
                     handleClick(e, context);
@@ -61,8 +55,6 @@ export default function Home(props) {
                     Join
                   </button>
                 </form>
-                
-              )}
               <section>
                 <h4>Or just take a look at our latest pets:</h4>
                   <Link to={{ pathname: "/dog" }}>
