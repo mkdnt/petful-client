@@ -28,20 +28,17 @@ export default function HomePage(props) {
         return (
           <div className="home">
             <div className="homeSection">
-             {!started ? <><h1>Welcome To F.I.F.O Find A Pet</h1>
+
+             {!started ? <>
+             <h2>The perfect pet is waiting for you!</h2>
+             <img src='https://i.pinimg.com/736x/ae/c4/53/aec453161b2f33ffc6219d8a758307a9.jpg' alt='cute puppy' />
               <p>
-                We are an animal shelter dogs and cats too! We do
-                things a little differently here. Adoption is on a
-                first come first serve basis. If you are lucky, you
-                may be first in line! If not, you will be put in a
-                queue before you can take your new pet home.
-                Additionally, the only pets up for adoption at any
-                given time are the dog and cat who have been in our
-                shelter the longest. First In, First Out! FIFO Find a pet to love!!
-              </p> </> : null }
+                Because our pets are so popular, you'll need to wait your turn to adopt. When you're up, you can pick the dog or cat that you want!
+              </p>
+              <h3>Enter your name to join the queue!</h3> </> : null }
               {!started ? (
                 <button onClick={() => setStarted(true)}>
-                  Let's start!
+                  Join
                 </button>
               ) : (
                 <form
@@ -61,7 +58,7 @@ export default function HomePage(props) {
                   </p>
                   <p className="error">{context.error}</p>
                   <button type="submit">
-                    Find your furrever friend!
+                    Join
                   </button>
                 </form>
               )}

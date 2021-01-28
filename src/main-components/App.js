@@ -138,6 +138,7 @@ class App extends Component {
         <ErrorBoundary>
           <main>
           <div className="app">
+            <h1>Petful</h1>
             <Route exact path="/" component={HomePage} />
             <Route path="/adoption" component={AdoptionPage} />
             <Route path="/dog" component={Dogs} />
