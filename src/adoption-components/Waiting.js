@@ -17,7 +17,7 @@ export default class Waiting extends Component {
         return;
       }
 
-      if (this.context.error === "Almost your turn...") {
+      if (this.context.error === "You're up next!") {
         this.context.setError(null);
         this.props.history.push("/adoptable");
         return;

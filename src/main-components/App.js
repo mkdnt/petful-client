@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HomePage from "./Home";
+import Home from "./Home";
 import Adoptable from "./Adoptable";
 import Cats from "../adoption-components/Cats";
 import Dogs from "../adoption-components/Dogs";
@@ -140,12 +140,12 @@ class App extends Component {
           <main>
           <div className="app">
             <h1>Petful</h1>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/adoptable" component={Adoptable} />
-            <Route path="/dog" component={Dogs} />
-            <Route path="/cat" component={Cats} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/adoptable" component={Adoptable} />
+            <Route exact path="/dog" component={Dogs} />
+            <Route exact path="/cat" component={Cats} />
             <Route
-              path="/waiting"
+              exact path="/waiting"
               render={(props) => <Waiting {...props} />}
             />
           </div>

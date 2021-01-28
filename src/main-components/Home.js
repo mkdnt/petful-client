@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import PetfulContext from '../context';
 import './Home.css'
 
-export default function HomePage(props) {
+export default function Home(props) {
   const [started, setStarted] = useState(false);
 
   const handleClick = (e, context) => {
     e.preventDefault();
     const name = e.target.name.value;
-    console.log(name);
     const nameData = {
       name: name,
     };
@@ -19,7 +18,6 @@ export default function HomePage(props) {
       context.setName(name);
       context.addPeople(nameData);
       context.setError('');
-      console.log(context.name);
       props.history.push('/waiting');
     }
   };
