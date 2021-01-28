@@ -30,7 +30,7 @@ export default class Waiting extends Component {
         this.context.setError("You're up next!");
         return;
       }
-    }, 5000);
+    }, 2500);
   }
 
   componentWillUnmount() {

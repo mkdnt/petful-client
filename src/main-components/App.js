@@ -8,6 +8,7 @@ import Waiting from "../adoption-components/Waiting";
 import { Route } from "react-router-dom";
 import { REACT_APP_API_BASE } from "../config";
 import ErrorBoundary from "../ErrorBoundary";
+import './App.css'
 
 class App extends Component {
   state = {

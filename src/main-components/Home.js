@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PetfulContext from '../context';
+import './Home.css'
 
 export default function HomePage(props) {
   const [started, setStarted] = useState(false);
@@ -53,7 +54,7 @@ export default function HomePage(props) {
                     <input
                       name="name"
                       type="text"
-                      placeholder="Jane Smith"
+                      placeholder="John Q. Person"
                     />
                   </p>
                   <p className="error">{context.error}</p>
