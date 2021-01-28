@@ -7,7 +7,10 @@ export default class Waiting extends Component {
   timeout = 0;
   componentDidMount() {
     this.timeout = setInterval(() => {
-      
+      if (this.context.people.length < 5) {
+        this.context.addPeople({ name: "Fake Human" });
+        return;
+      }
       if (this.context.people[0] !== this.context.name) {
         const name = this.context.people[0];
         this.context.deletePeople(name);
@@ -27,10 +30,7 @@ export default class Waiting extends Component {
         this.context.setError("You're up next!");
         return;
       }
-      if (this.context.people.length < 5) {
-        this.context.addPeople({ name: "Fake Human" });
-        return;
-      }
+      
     }, 5000);
   }
 
