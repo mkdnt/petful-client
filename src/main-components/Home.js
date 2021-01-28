@@ -1,52 +1,74 @@
-import React, { Component } from 'react'
-import PetfulContext from '../context'
-import PeopleService from '../services/people-service'
-import { Link } from 'react-router-dom'
-import './Home.css'
+import React, { useState } from 'react';
+import Context from '../Context/Context';
 
-class Home extends Component {
-  static contextType = PetfulContext
+export default function HomePage(props) {
+  const [started, setStarted] = useState(false);
 
-  handleJoinQueue = (event) => {
-    event.preventDefault()
-    this.context.clearError()
-    this.context.clearPerson()
-    let person = document.getElementById('name').value
-    this.context.setPerson(person)
-    return PeopleService.addPerson(person).then((results) => {
-      const { location, history } = this.props
-      const destination = (location.state || {}).from || '/adoptable'
-      history.push(destination)
-    })
-  }
-
-  render() {
-    return (
-      <div>
-        <div>
-          <h2>The perfect pet is waiting for you!</h2>
-          <img src='https://i.pinimg.com/736x/ae/c4/53/aec453161b2f33ffc6219d8a758307a9.jpg' alt='cute puppy' />
-        </div>
-        <form onSubmit={this.handleJoinQueue}>
-          <h3>Enter your name to join the queue!</h3>
-          <section>
-            <p>
-              Because our pets are so popular, you'll need to wait your turn to adopt. When you're up, you can pick the dog or cat that you want!
-            </p>
-          </section>
-          <input aria-label='name' type='text' name='name' id='name' required />
-          <button type='submit'>Join</button>
-        </form>
-        <section>
-          <h3>Or just take a look at our pets:</h3>
-          <Link to='/adoptable'>
-            <button>Adoptable Pets</button>{' '}
-          </Link>
-        </section>
-        
-      </div>
-    )
-  }
+  const handleClick = (e, context) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    console.log(name);
+    const nameData = {
+      name: name,
+    };
+    if (!name) {
+      context.setError('Please enter your name');
+      return;
+    } else {
+      context.setName(name);
+      context.addPeople(nameData);
+      context.setError('');
+      console.log(context.name);
+      props.history.push('/confirmation');
+    }
+  };
+  return (
+    <Context.Consumer>
+      {(context) => {
+        return (
+          <div className="home">
+            <div className="homeSection">
+             {!started ? <><h1>Welcome To F.I.F.O Find A Pet</h1>
+              <p>
+                We are an animal shelter dogs and cats too! We do
+                things a little differently here. Adoption is on a
+                first come first serve basis. If you are lucky, you
+                may be first in line! If not, you will be put in a
+                queue before you can take your new pet home.
+                Additionally, the only pets up for adoption at any
+                given time are the dog and cat who have been in our
+                shelter the longest. First In, First Out! FIFO Find a pet to love!!
+              </p> </> : null }
+              {!started ? (
+                <button onClick={() => setStarted(true)}>
+                  Let's start!
+                </button>
+              ) : (
+                <form
+                  onSubmit={(e) => {
+                    handleClick(e, context);
+                  }}
+                >
+                  <p>
+                    <label>What's your name?</label>
+                  </p>
+                  <p>
+                    <input
+                      name="name"
+                      type="text"
+                      placeholder="Jane Smith"
+                    />
+                  </p>
+                  <p className="error">{context.error}</p>
+                  <button type="submit">
+                    Find your furrever friend!
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+        );
+      }}
+    </Context.Consumer>
+  );
 }
-
-export default Home
