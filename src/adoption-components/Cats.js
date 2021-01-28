@@ -1,5 +1,5 @@
 import React from "react";
-import Context from "../Context/Context";
+import PetfulContext from "../context";
 import { Link } from "react-router-dom";
 
 export default function Cats(props) {
@@ -9,7 +9,7 @@ export default function Cats(props) {
     console.log(currentCat);
     context.adoptCat(currentCat);
     context.deletePeople(name);
-    context.setError("Congratulations! You are now a pet owner");
+    context.setError("Congratulations to the new paw-rent!");
     context.setName("");
     context.setCatNode(context.cats[1]);
   };
@@ -20,7 +20,7 @@ export default function Cats(props) {
   };
 
   return (
-    <Context.Consumer>
+    <PetfulContext.Consumer>
       {(context) => {
         console.log(context);
         if (context.cats.length < 1) {
@@ -68,6 +68,6 @@ export default function Cats(props) {
           </div>
         );
       }}
-    </Context.Consumer>
+    </PetfulContext.Consumer>
   );
 }

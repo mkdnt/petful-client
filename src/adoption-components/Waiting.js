@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Context from "../Context/Context";
+import PetfulContext from "../context";
 
-export default class Confirmations extends Component {
-  static contextType = Context;
+export default class Waiting extends Component {
+  static contextType = PetfulContext;
 
   timeout = 0;
   componentDidMount() {
@@ -19,7 +19,7 @@ export default class Confirmations extends Component {
 
       if (this.context.error === "Almost your turn...") {
         this.context.setError(null);
-        this.props.history.push("/adoption");
+        this.props.history.push("/adoptable");
         return;
       }
 
@@ -30,7 +30,7 @@ export default class Confirmations extends Component {
         this.context.setError("You're up next!");
         return;
       }
-    }, 2500);
+    }, 5000);
   }
 
   componentWillUnmount() {
@@ -39,7 +39,7 @@ export default class Confirmations extends Component {
 
   render() {
     return (
-      <Context.Consumer>
+      <PetfulContext.Consumer>
         {(context) => {
           console.log(context);
           return (
@@ -55,7 +55,7 @@ export default class Confirmations extends Component {
             </div>
           );
         }}
-      </Context.Consumer>
+      </PetfulContext.Consumer>
     );
   }
 }

@@ -1,5 +1,4 @@
-const config = {
+module.exports = {
     REACT_APP_API_BASE: 'https://petful-md.herokuapp.com'
-}
-
-export default config;
+    //REACT_APP_API_BASE: 'http://localhost:8000/'
+};

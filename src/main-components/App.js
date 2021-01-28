@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import HomePage from "./Home";
-import AdoptionPage from "../adoption-components/AdoptionPage";
+import Adoptable from "./Adoptable";
 import Cats from "../adoption-components/Cats";
 import Dogs from "../adoption-components/Dogs";
-import Context from "./Components/Context/Context";
-import Confirmation from "./Components/ConfirmationPage/ConfirmationPage";
+import PetfulContext from "../context";
+import Waiting from "../adoption-components/Waiting";
 import { Route } from "react-router-dom";
-import { REACT_APP_API_BASE } from "./config";
-import ErrorBoundary from "./Components/ErrorBoundary/ErrorBoundary";
+import { REACT_APP_API_BASE } from "../config";
+import ErrorBoundary from "../ErrorBoundary";
 
 class App extends Component {
   state = {
@@ -83,7 +83,7 @@ class App extends Component {
           });
         })
         .catch((e) => {
-          throw new Error("person wasnt deleted");
+          throw new Error("Queue Error!");
         });
     },
     adoptCat: () => {
@@ -100,7 +100,7 @@ class App extends Component {
           });
         })
         .catch((e) => {
-          throw new Error("cat wasnt adopted");
+          throw new Error("Adoption failed.");
         });
     },
     adoptDog: () => {
@@ -116,7 +116,7 @@ class App extends Component {
           });
         })
         .catch((e) => {
-          throw new Error("dog adoption failed");
+          throw new Error("Adoption failed.");
         });
     },
     setCatNode: (nextCat) => this.setState({ catNode: nextCat }),
@@ -134,23 +134,23 @@ class App extends Component {
 
   render() {
     return (
-      <Context.Provider value={this.state}>
+      <PetfulContext.Provider value={this.state}>
         <ErrorBoundary>
           <main>
           <div className="app">
             <h1>Petful</h1>
             <Route exact path="/" component={HomePage} />
-            <Route path="/adoption" component={AdoptionPage} />
+            <Route path="/adoptable" component={Adoptable} />
             <Route path="/dog" component={Dogs} />
             <Route path="/cat" component={Cats} />
             <Route
-              path="/confirmation"
-              render={(props) => <Confirmation {...props} />}
+              path="/waiting"
+              render={(props) => <Waiting {...props} />}
             />
           </div>
           </main>
         </ErrorBoundary>
-      </Context.Provider>
+      </PetfulContext.Provider>
     );
   }
 }

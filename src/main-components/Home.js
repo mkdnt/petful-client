@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Context from '../Context/Context';
+import PetfulContext from '../context';
 
 export default function HomePage(props) {
   const [started, setStarted] = useState(false);
@@ -19,11 +19,11 @@ export default function HomePage(props) {
       context.addPeople(nameData);
       context.setError('');
       console.log(context.name);
-      props.history.push('/confirmation');
+      props.history.push('/waiting');
     }
   };
   return (
-    <Context.Consumer>
+    <PetfulContext.Consumer>
       {(context) => {
         return (
           <div className="home">
@@ -47,7 +47,7 @@ export default function HomePage(props) {
                   }}
                 >
                   <p>
-                    <label>What's your name?</label>
+                    <label>Name:</label>
                   </p>
                   <p>
                     <input
@@ -66,6 +66,6 @@ export default function HomePage(props) {
           </div>
         );
       }}
-    </Context.Consumer>
+    </PetfulContext.Consumer>
   );
 }

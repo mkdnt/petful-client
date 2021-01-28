@@ -1,5 +1,5 @@
 import React from "react";
-import Context from "../Context/Context";
+import PetfulContext from "../context";
 import { Link } from "react-router-dom";
 
 export default function Dogs(props) {
@@ -9,17 +9,18 @@ export default function Dogs(props) {
     console.log(currentDog);
     context.adoptDog(currentDog);
     context.deletePeople(name);
-    context.setError("Congratulations! You got yourself a doggo!");
+    context.setError("Congratulations to the new paw-rent!");
     context.setName("");
     context.setDogNode(context.dogs[1]);
   };
 
+  
   const clearError = (e, context) => {
     context.setError("");
   };
 
   return (
-    <Context.Consumer>
+    <PetfulContext.Consumer>
       {(context) => {
         console.log(context);
         if (context.dogs.length < 1) {
@@ -67,6 +68,6 @@ export default function Dogs(props) {
           </div>
         );
       }}
-    </Context.Consumer>
+    </PetfulContext.Consumer>
   );
 }
