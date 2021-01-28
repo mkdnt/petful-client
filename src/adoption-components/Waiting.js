@@ -31,7 +31,7 @@ export default class Waiting extends Component {
         return;
       }
       
-    }, 5000);
+    }, 2500);
   }
 
   componentWillUnmount() {
@@ -42,12 +42,11 @@ export default class Waiting extends Component {
     return (
       <PetfulContext.Consumer>
         {(context) => {
-          console.log(context);
           return (
             <div>
               <h1>Please wait in line...</h1>
               <h3>When it is your turn, you can select a dog or cat.</h3>
-              <p className="error">{context.error}</p>
+              <p> {context.error}</p>
               <ol>
                 {this.context.people.map((person, i) => {
                   return <li key={i}>{person}</li>;
