@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function AdoptionPage() {
+export default function Adoptable() {
   return (
     <div>
       <h1>Adoptable Pets</h1>
