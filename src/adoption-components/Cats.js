@@ -6,10 +6,9 @@ export default function Cats(props) {
   const handleClickAdopt = (e, context) => {
     const currentCat = context.cats[0];
     const name = context.name;
-    console.log(currentCat);
     context.adoptCat(currentCat);
     context.deletePeople(name);
-    context.setError("Congratulations to the new paw-rent!");
+    context.setError("CONGRATULATIONS TO YOU, THE NEW PAW-RENT OF A WONDERFUL PET!");
     context.setName("");
     context.setCatNode(context.cats[1]);
   };
@@ -22,7 +21,6 @@ export default function Cats(props) {
   return (
     <PetfulContext.Consumer>
       {(context) => {
-        console.log(context);
         if (context.cats.length < 1) {
           return (
             <div>

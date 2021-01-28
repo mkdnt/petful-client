@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PetfulContext from '../context';
+import { Link } from "react-router-dom";
 import './Home.css'
 
 export default function Home(props) {
@@ -60,7 +61,24 @@ export default function Home(props) {
                     Join
                   </button>
                 </form>
+                
               )}
+              <section>
+                <h4>Or just take a look at our latest pets:</h4>
+                  <Link to={{ pathname: "/dog" }}>
+                    <h5>DOGS</h5>
+                  </Link>
+                  <Link to={{ pathname: "/cat" }}>
+                    <h5>CATS</h5>
+                  </Link>
+                  <hr
+                      style={{
+                      width: "75%",
+                      border: "2px solid #000000",
+                      backgroundColor: "#000000",
+                      }}
+                  />
+              </section>
             </div>
           </div>
         );

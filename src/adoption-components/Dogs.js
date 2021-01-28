@@ -6,15 +6,14 @@ export default function Dogs(props) {
   const handleClickAdopt = (e, context) => {
     const currentDog = context.dogs[0];
     const name = context.name;
-    console.log(currentDog);
     context.adoptDog(currentDog);
     context.deletePeople(name);
-    context.setError("Congratulations to the new paw-rent!");
+    context.setError("CONGRATULATIONS TO YOU, THE NEW PAW-RENT OF A WONDERFUL PET!");
     context.setName("");
     context.setDogNode(context.dogs[1]);
   };
 
-  
+
   const clearError = (e, context) => {
     context.setError("");
   };
@@ -22,7 +21,6 @@ export default function Dogs(props) {
   return (
     <PetfulContext.Consumer>
       {(context) => {
-        console.log(context);
         if (context.dogs.length < 1) {
           return (
             <div>

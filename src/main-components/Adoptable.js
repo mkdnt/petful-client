@@ -7,11 +7,9 @@ export default function Adoptable() {
       <h1>Adoptable Pets</h1>
       <Link to={{ pathname: "/dog" }}>
         <h2>DOGS</h2>
-        <button>Choose</button>
       </Link>
       <Link to={{ pathname: "/cat" }}>
         <h2>CATS</h2>
-        <button>Choose</button>
       </Link>
     </div>
   );
