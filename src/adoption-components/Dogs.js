@@ -3,7 +3,7 @@ import PetfulContext from "../context";
 import { Link } from "react-router-dom";
 
 export default function Dogs(props) {
-  const handleClickAdopt = (e, context) => {
+  const handleClickAdoptDog = (e, context) => {
     const currentDog = context.dogs[0];
     const name = context.name;
     context.adoptDog(currentDog);
@@ -51,7 +51,7 @@ export default function Dogs(props) {
               {context.dogNode.story}
             </p>
             {context.name.length > 1 && (
-              <button onClick={(e) => handleClickAdopt(e, context)}>
+              <button onClick={(e) => handleClickAdoptDog(e, context)}>
                 Adopt Me
               </button>
             )}
